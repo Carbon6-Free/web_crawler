@@ -7,6 +7,7 @@ import json
 
 file = open("URL.txt", "r")
 urls = file.readlines()
+urls = [line[:-2] for line in urls]
 print(urls)
 
 # url = 'https://naver.com'
@@ -44,7 +45,7 @@ def getjsonData(url):
     totSize = 0
     try:
         driver.get(url)
-        wait = WebDriverWait(driver, 20)
+        wait = WebDriverWait(driver, 10)
 
         network_requests = driver.execute_script("return window.performance.getEntriesByType('resource');")
 
@@ -71,7 +72,7 @@ def getjsonData(url):
 for url in urls:
     data.append(getjsonData(url))
 
-with open('network_requests.json', 'w') as json_file:
+with open('request.json', 'w') as json_file:
     json.dump(data, json_file, indent=5)
 
 driver.quit()
