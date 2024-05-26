@@ -2,3 +2,5 @@
 chromedriver
 LICENSE.chromedriver
 *.json
+.env
+*.png
