@@ -1,6 +1,9 @@
 def bytes_to_gb(bytes):
     return bytes / (1024 ** 3)
 
+def bytes_to_mb(bytes):
+    return bytes / (1024 ** 2)
+
 def energy(bytes):
     return bytes_to_gb(bytes) * 0.81 * 0.75 + (bytes_to_gb(bytes) * 0.02) * 0.81 * 0.25
 
